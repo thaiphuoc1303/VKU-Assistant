@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:minWidth="400dp"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20dp"
+        android:textColor="#BCFFEB3B"
+        android:text="Sửa thời khóa biểu"
+        android:layout_margin="20dp"
+        />
+
+    <EditText
+        android:id="@+id/editTextTen"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:paddingLeft="20dp"
+        android:hint="Học phần"
+        android:background="@drawable/edittextselector"
+        android:layout_margin="20dp"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/editTextPhong"
+        android:layout_margin="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:paddingLeft="20dp"
+        android:background="@drawable/edittextselector"
+        android:hint="Phòng"
+        android:inputType="textPersonName" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_marginLeft="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Thời gian:"
+        android:textSize="18sp" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        >
+        <Spinner
+            android:id="@+id/spinner2"
+            android:background="@drawable/edittextselector"
+            android:layout_width="wrap_content"
+            android:layout_marginRight="10dp"
+            android:layout_height="45dp" />
+
+        <EditText
+            android:id="@+id/editTextGiohoc"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:editable="false"
+            android:paddingLeft="20dp"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/edittextselector"
+            android:hint="Giờ học"
+            android:inputType="textPersonName" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center">
+
+        <Button
+            android:id="@+id/buttonhuy"
+            android:theme="@style/Theme.btnRed"
+            android:layout_margin="10dp"
+            android:background="@drawable/button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hủy"/>
+        <Button
+            android:id="@+id/buttonXacNhan"
+            android:layout_margin="10dp"
+            android:background="@drawable/button"
+            android:layout_width="wrap_content"
+            android:layout_gravity="center"
+            android:layout_height="wrap_content"
+            android:text="Xác nhận" />
+    </LinearLayout>
+
+
+
+</LinearLayout>

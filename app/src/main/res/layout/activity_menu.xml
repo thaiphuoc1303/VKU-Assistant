@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/backgroundmenu"
+   android:orientation="vertical"
+    android:gravity="center"
+    tools:context=".MenuActivity">
+
+    <TableLayout
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:background="@drawable/layoutwhite"
+        >
+
+        <TableRow
+            android:gravity="center">
+
+            <ImageButton
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_margin="20dp"
+                android:src="@drawable/notification" />
+
+            <ImageButton
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_margin="20dp"
+                android:src="@drawable/notification" />
+        </TableRow>
+        <TableRow android:gravity="center">
+
+            <ImageButton
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_margin="20dp"
+                android:src="@drawable/notification" />
+
+            <ImageButton
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_margin="20dp"
+                android:src="@drawable/notification" />
+        </TableRow>
+    </TableLayout>
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:columnCount="3"
+        android:padding="20dp"
+        >
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="10dp"
+            android:text="Trang chủ" />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="10dp"
+            android:layout_gravity="center"
+            android:text="Cài đặt" />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="10dp"
+            android:text="Tài khoản" />
+    </GridLayout>
+</LinearLayout>
