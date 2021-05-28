@@ -121,7 +121,6 @@ public class MonHocAdapter extends BaseAdapter {
             @Override
             public void onClick(View v) {
                 dialogEdit(mon);
-
             }
         });
         convertView.setOnClickListener(new View.OnClickListener() {
@@ -150,7 +149,9 @@ public class MonHocAdapter extends BaseAdapter {
         thu.add(context.getString(R.string.thu6));
         thu.add(context.getString(R.string.thu7));
         ArrayList<String> arrDD = new ArrayList<String>();
+
         Cursor cursor = dataBase.GetData("SELECT * FROM diadiem");
+        arrDD.add(context.getString(R.string.chonthu));
         while (cursor.moveToNext()){
             arrDD.add(cursor.getString(1));
         }
@@ -193,6 +194,7 @@ public class MonHocAdapter extends BaseAdapter {
         spinner2.setAdapter(adapter2);
         spinner2.setSelection(Integer.parseInt(mon.getDiadiem()));
         spinner.setSelection(Integer.parseInt(mon.getThu()));
+
         huy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -206,7 +208,7 @@ public class MonHocAdapter extends BaseAdapter {
                 String phong = edtPhong.getText().toString().trim();
                 String gio = edtGio.getText().toString().trim();
                 int ngay = spinner.getSelectedItemPosition();
-                int diadiem = spinner2.getSelectedItemPosition()+1;
+                int diadiem = spinner2.getSelectedItemPosition();
                 if(!tenmon.equals("") && !phong.equals("") && !gio.equals("") && ngay!=0){
                     String sql = "UPDATE lichhoc SET " +
                             "thu = "+ ngay + ", "+
