@@ -1,7 +1,9 @@
 package com.example.notifition;
 
-public class monhoc {
-    private String ten, phong, thu, giohoc, id;
+import java.io.Serializable;
+
+public class monhoc implements Serializable {
+    private String ten, phong, thu, giohoc, id, diadiem;
     private String stt;
 
     public monhoc(String id, String ten, String phong, String thu, String giohoc, String stt) {
@@ -11,6 +13,24 @@ public class monhoc {
         this.giohoc = giohoc;
         this.id = id;
         this.stt = stt;
+    }
+
+    public monhoc(String id, String ten, String phong, String thu, String giohoc, String diadiem, String stt) {
+        this.ten = ten;
+        this.phong = phong;
+        this.thu = thu;
+        this.giohoc = giohoc;
+        this.id = id;
+        this.diadiem = diadiem;
+        this.stt = stt;
+    }
+
+    public String getDiadiem() {
+        return diadiem;
+    }
+
+    public void setDiadiem(String diadiem) {
+        this.diadiem = diadiem;
     }
 
     public String getStt() {

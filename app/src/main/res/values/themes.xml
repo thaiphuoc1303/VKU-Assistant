@@ -20,4 +20,9 @@
         <item name="colorPrimary">#F6786C</item>
         <item name="colorOnPrimary" >#000000</item>
     </style>
+    <style name="Theme.settingbar" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        <item name="colorPrimary">@color/green</item>
+        <item name="android:textColorPrimary">@color/white</item>
+        <item name="colorPrimaryDark">#B1FF91</item>
+    </style>
 </resources>

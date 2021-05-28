@@ -16,8 +16,8 @@ public class check extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
        String id = intent.getStringExtra("id");
-
+        String table = intent.getStringExtra("table");
         DataBase dataBase = new DataBase(context, "database.sqlite", null, 1);
-        dataBase.QueryData("UPDATE lichhoc SET trangthai = 1 WHERE id = " + id);
+        dataBase.QueryData("UPDATE "+ table +" SET trangthai = 1 WHERE id = " + id);
     }
 }

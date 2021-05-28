@@ -1,27 +1,20 @@
 package com.example.notifition;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
-
-import android.Manifest;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.database.Cursor;
-import android.location.Location;
-import android.location.LocationListener;
-import android.location.LocationManager;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.Toast;
-
-import com.google.android.gms.location.LocationRequest;
 
 import java.util.ArrayList;
 
@@ -30,19 +23,7 @@ public class MainActivity2 extends AppCompatActivity {
     ArrayList<monhoc> monhocs;
     ListView list;
     MonHocAdapter adapter;
-    Menu menu;
-    ImageButton btnReload;
-    double lng, lat;
-    public LocationRequest locationRequest;
-    LocationManager locationManager;
-    public LocationListener locationListener;
-
-    protected void createLocationRequest() {
-        locationRequest = LocationRequest.create();
-        locationRequest.setInterval(10000);
-        locationRequest.setFastestInterval(5000);
-        locationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
-    }
+    Handler handler;
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -54,11 +35,10 @@ public class MainActivity2 extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
 
-            case R.id.danhsach:
+            case R.id.themMonHoc:
                 Intent intent = new Intent(this, MainActivity.class);
                 startActivity(intent);
                 break;
-
         }
         return super.onOptionsItemSelected(item);
     }
@@ -68,17 +48,22 @@ public class MainActivity2 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
 
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
+
         list = (ListView) findViewById(R.id.listview);
-        btnReload = (ImageButton) findViewById(R.id.imgbtnReload);
+
         dataBase = new DataBase(this, "database.sqlite", null, 1);
-        dataBase.QueryData("CREATE TABLE IF NOT EXISTS lichhoc (" +
-                "    id        INTEGER PRIMARY KEY AUTOINCREMENT," +
-                "    thu       INTEGER," +
-                "    hocphan   VARCHAR," +
-                "    phong     VARCHAR," +
-                "    thoigian VARCHAR," +
-                "    trangthai INTEGER DEFAULT (0)" +
-                ")");
+
+        //thêm dữ liệu
+//        dataBase.QueryData("INSERT INTO diadiem (ten,chitiet,lat,lng) " +
+//                "VALUES('Dãy A Khu V', 'Trường Đại học Công nghệ Thông tin & Truyền Thông Việt - Hàn', '15.972284', '108.249423')");
+//        dataBase.QueryData("INSERT INTO diadiem (ten,chitiet,lat,lng) " +
+//                "VALUES('Dãy B Khu V', 'Trường Đại học Công nghệ Thông tin & Truyền Thông Việt - Hàn', '15.973209', '108.249612')");
+//        dataBase.QueryData("INSERT INTO diadiem (ten,chitiet,lat,lng) " +
+//                "VALUES('Khu K', 'Trường Đại học Công nghệ Thông tin & Truyền Thông Việt - Hàn', '15.975047', '108.252507')");
+//        dataBase.QueryData("INSERT INTO diadiem (ten,chitiet,lat,lng) " +
+//                "VALUES('Kí túc xá', 'Trường Đại học Công nghệ Thông tin & Truyền Thông Việt - Hàn', '15.973317', '108.252440')");
         Cursor cursor = dataBase.GetData("SELECT * FROM lichhoc");
         monhocs = new ArrayList<>();
         int i = 0;
@@ -89,60 +74,41 @@ public class MainActivity2 extends AppCompatActivity {
             String mon = cursor.getString(2);
             String phong = cursor.getString(3);
             String thoiGian = cursor.getString(4);
-
-            monhocs.add(new monhoc(id, mon, phong, thu, thoiGian, i + ""));
+            String diadiem = cursor.getString(6);
+            monhocs.add(new monhoc(id, mon, phong, thu, thoiGian, diadiem, i + ""));
 
         }
         adapter = new MonHocAdapter(this, R.layout.monhoc, monhocs);
         list.setAdapter(adapter);
-        Intent intent = new Intent(this, ServiceNotification.class);
-        startService(intent);
-        btnReload.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Cursor cursor2 = dataBase.GetData("SELECT * FROM lichhoc");
-                monhocs.clear();
-                int j = 0;
-                while (cursor2.moveToNext()) {
-                    j++;
-                    String id = cursor2.getString(0);
-                    String thu = cursor2.getString(1);
-                    String mon = cursor2.getString(2);
-                    String phong = cursor2.getString(3);
-                    String thoiGian = cursor2.getString(4);
 
-                    monhocs.add(new monhoc(id, mon, phong, thu, thoiGian, j + ""));
+        handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                Cursor cursor1 = dataBase.GetData("SELECT * FROM lichhoc");
+                monhocs = new ArrayList<>();
+                int i = 0;
+                while (cursor1.moveToNext()) {
+                    i++;
+                    String id = cursor1.getString(0);
+                    String thu = cursor1.getString(1);
+                    String mon = cursor1.getString(2);
+                    String phong = cursor1.getString(3);
+                    String thoiGian = cursor1.getString(4);
+                    String diadiem = cursor1.getString(6);
+                    monhocs.add(new monhoc(id, mon, phong, thu, thoiGian, diadiem, i + ""));
 
                 }
-                adapter.notifyDataSetChanged();
-
+                adapter = new MonHocAdapter(MainActivity2.this, R.layout.monhoc, monhocs);
+                list.setAdapter(adapter);
+                handler.postDelayed(this, 2000);
             }
-        });
-
-        locationManager = (LocationManager) this.getSystemService(LOCATION_SERVICE);
-
-        createLocationRequest();
-        locationListener = new LocationListener() {
-            @Override
-            public void onLocationChanged(@NonNull Location location) {
-                lat = (double) location.getLatitude();
-                lng = (double) location.getLongitude();
-//                Toast toast = Toast.makeText(MainActivity2.this, lat+" "+ lng, Toast.LENGTH_SHORT);
-//                toast.show();
-            }
-        };
-        int fine = ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION);
-        int coars = ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION);
-        if (fine != PackageManager.PERMISSION_GRANTED || coars != PackageManager.PERMISSION_GRANTED){
-
-            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION,Manifest.permission.ACCESS_COARSE_LOCATION}, 1);
-//            fusedLocationClient.requestLocationUpdates(LocationManager.GPS_PROVIDER, 1000, 0, locationListener);
-        }
-        else {
-            locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 5000, 0, locationListener);
-        }
-        locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 5000, 0, locationListener);
+        }, 2000);
     }
 
-
+    @Override
+    protected void onPause() {
+        super.onPause();
+        handler.removeMessages(0);
+    }
 }

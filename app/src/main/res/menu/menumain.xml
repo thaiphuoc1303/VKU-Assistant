@@ -3,12 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
         android:icon="@drawable/ic_add"
-        android:id="@+id/danhsach"
+        android:id="@+id/themMonHoc"
         app:showAsAction="always"
         android:title="Lịch học"
         />
-    <item android:id="@+id/map"
-        app:showAsAction="always"
-        android:icon="@drawable/ic_map"
-        android:title="Map" />
 </menu>

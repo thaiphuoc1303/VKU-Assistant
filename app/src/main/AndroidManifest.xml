@@ -3,10 +3,10 @@
     package="com.example.notifition">
 
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
 
     <application
         android:allowBackup="true"
@@ -15,27 +15,54 @@
         android:roundIcon="@drawable/notification"
         android:supportsRtl="true"
         android:theme="@style/Theme.Notifition">
-
-
-
-        <activity android:name=".MainActivity2"
-            android:label="VKU Assitant">
+        <activity android:name=".ThemNhacNhoActivity"
+            android:parentActivityName=".ListCVActivity"
+            android:label="Thêm nhắc nhở"></activity>
+        <activity android:name=".ListCVActivity"
+            android:parentActivityName=".MenuActivity"/>
+        <activity
+            android:name=".LocationListActivity"
+            android:parentActivityName=".MapMenuActivity" />
+        <activity
+            android:name=".AddLocationActivity"
+            android:label="@string/themdiadiem"
+            android:parentActivityName=".MapMenuActivity" />
+        <activity
+            android:name=".MapMenuActivity"
+            android:label="@string/bando"
+            android:parentActivityName=".MenuActivity" />
+        <activity
+            android:name=".SettingActivity"
+            android:parentActivityName=".MenuActivity" />
+        <activity android:name=".ChiTietActivity"
+            android:label="@string/lichhoc"
+            android:parentActivityName=".MainActivity2"/>
+        <activity
+            android:name=".MapActivity"
+            android:parentActivityName=".MainActivity2" />
+        <activity android:name=".MenuActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MenuActivity" />
-        <activity android:name=".MainActivity"
-            android:parentActivityName=".MainActivity2"
-            />
+        <activity
+            android:name=".MainActivity2"
+            android:parentActivityName=".MenuActivity" />
+        <activity
+            android:name=".MainActivity"
+            android:parentActivityName=".MainActivity2" />
 
         <service
             android:name=".ServiceNotification"
-            android:exported="true"
-            />
-        <receiver android:name=".check"/>
+            android:exported="true" />
+
+        <receiver android:name=".check" />
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyA66KwUrjxcFG5u0exynlJ45CrbrNe3hEc" />
     </application>
 
 </manifest>

@@ -4,6 +4,10 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.TimePickerDialog;
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.database.Cursor;
+import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -21,6 +25,8 @@ import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
+import androidx.core.content.ContextCompat;
+
 import java.lang.reflect.Array;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -33,19 +39,18 @@ public class MonHocAdapter extends BaseAdapter {
     ArrayList<monhoc> hocphans;
     private ImageButton imgbtnEdit, imgbtnDelete;
     DataBase dataBase;
-    EditText edtTenMon, edtPhong, edtGio;
-    Spinner spinner;
+
     public MonHocAdapter(Context context, int layout, ArrayList<monhoc> hocphan) {
         dataBase = new DataBase(context, "database.sqlite", null, 1);
         this.context = context;
         this.layout = layout;
         this.hocphans = hocphan;
     }
-
     @Override
     public void notifyDataSetChanged() {
         super.notifyDataSetChanged();
     }
+
 
     @Override
     public int getCount() {
@@ -76,12 +81,34 @@ public class MonHocAdapter extends BaseAdapter {
         imgbtnEdit = (ImageButton) convertView.findViewById(R.id.edit);
         monhoc mon = hocphans.get(position);
 
+
         idMon.setText(mon.getStt());
         tvTen.setText(mon.getTen());
         tvGio.setText(mon.getGiohoc());
         tvPhong.setText(mon.getPhong());
-        tvThu.setText(mon.getThu());
-
+        switch (mon.getThu()){
+            case "1":
+                tvThu.setText(R.string.chuNhat);
+                break;
+            case "2":
+                tvThu.setText(R.string.thu2);
+                break;
+            case "3":
+                tvThu.setText(R.string.thu3);
+                break;
+            case "4":
+                tvThu.setText(R.string.thu4);
+                break;
+            case "5":
+                tvThu.setText(R.string.thu5);
+                break;
+            case "6":
+                tvThu.setText(R.string.thu6);
+                break;
+            case "7":
+                tvThu.setText(R.string.thu7);
+                break;
+        }
         imgbtnDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -97,29 +124,44 @@ public class MonHocAdapter extends BaseAdapter {
 
             }
         });
+        convertView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, ChiTietActivity.class);
+                intent.putExtra("data", mon);
+                intent.putExtra("mode", 2);
+                ContextCompat.startActivity(context, intent, null);
+            }
+        });
         return convertView;
     }
     private void dialogEdit(monhoc mon){
-
         Dialog dialog = new Dialog(context);
         dialog.setContentView(R.layout.editlayout);
+        dialog.show();
         Button xacnhan, huy;
         ArrayList<String> thu = new ArrayList<String>();
-        thu.add("Chọn thứ:");
-        thu.add("Chủ nhật");
-        thu.add("Thứ hai");
-        thu.add("Thứ ba");
-        thu.add("Thứ tư");
-        thu.add("Thứ năm");
-        thu.add("Thứ sáu");
-        thu.add("Thứ bảy");
+        thu.add(context.getString(R.string.chonthu));
+        thu.add(context.getString(R.string.chuNhat));
+        thu.add(context.getString(R.string.thu2));
+        thu.add(context.getString(R.string.thu3));
+        thu.add(context.getString(R.string.thu4));
+        thu.add(context.getString(R.string.thu5));
+        thu.add(context.getString(R.string.thu6));
+        thu.add(context.getString(R.string.thu7));
+        ArrayList<String> arrDD = new ArrayList<String>();
+        Cursor cursor = dataBase.GetData("SELECT * FROM diadiem");
+        while (cursor.moveToNext()){
+            arrDD.add(cursor.getString(1));
+        }
 
-        ArrayAdapter adapter = new ArrayAdapter(context, android.R.layout.simple_list_item_1, thu);
-        dialog.show();
+        EditText edtTenMon, edtPhong, edtGio;
+        Spinner spinner, spinner2;
         spinner = (Spinner) dialog.findViewById(R.id.spinner2) ;
         edtTenMon = (EditText)dialog.findViewById(R.id.editTextTen);
         edtPhong =(EditText)dialog.findViewById(R.id.editTextPhong);
         edtGio =(EditText) dialog.findViewById(R.id.editTextGiohoc);
+        spinner2 = (Spinner) dialog.findViewById(R.id.SPdiadiem);
         edtGio.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -140,12 +182,16 @@ public class MonHocAdapter extends BaseAdapter {
                 time.show();
             }
         });
+        ArrayAdapter adapter2 = new ArrayAdapter(context, android.R.layout.simple_list_item_1, arrDD);
+        ArrayAdapter adapter1 = new ArrayAdapter(context, android.R.layout.simple_list_item_1, thu);
         xacnhan = (Button) dialog.findViewById(R.id.buttonXacNhan);
         huy = (Button) dialog.findViewById(R.id.buttonhuy);
         edtTenMon.setText(mon.getTen());
         edtPhong.setText(mon.getPhong());
         edtGio.setText(mon.getGiohoc());
-        spinner.setAdapter(adapter);
+        spinner.setAdapter(adapter1);
+        spinner2.setAdapter(adapter2);
+        spinner2.setSelection(Integer.parseInt(mon.getDiadiem()));
         spinner.setSelection(Integer.parseInt(mon.getThu()));
         huy.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -159,14 +205,16 @@ public class MonHocAdapter extends BaseAdapter {
                 String tenmon = edtTenMon.getText().toString().trim();
                 String phong = edtPhong.getText().toString().trim();
                 String gio = edtGio.getText().toString().trim();
-                String ngay = (spinner.getSelectedItemPosition()+"").trim();
-                if(!tenmon.equals("") && !phong.equals("") && !gio.equals("") && !ngay.equals("")){
+                int ngay = spinner.getSelectedItemPosition();
+                int diadiem = spinner2.getSelectedItemPosition()+1;
+                if(!tenmon.equals("") && !phong.equals("") && !gio.equals("") && ngay!=0){
                     String sql = "UPDATE lichhoc SET " +
                             "thu = "+ ngay + ", "+
                             "hocphan = '" + tenmon +"', "+
                             "phong = '" +phong +"', "+
-                            "thoigian = '" +gio + "' "+
-                            "WHERE ID ="+mon.getId();
+                            "thoigian = '" +gio + "', "+
+                            "diadiem = '"+ diadiem+ "' "+
+                            " WHERE ID ="+mon.getId();
                     dataBase.QueryData(sql);
                     dialog.cancel();
                     Toast toast = Toast.makeText(context, "Đã sửa", Toast.LENGTH_SHORT);

@@ -20,17 +20,8 @@
             android:layout_height="wrap_content"
 
             android:textSize="30dp"
-            android:text="Lịch học"
+            android:text="@string/lichhoc"
             />
-
-        <ImageButton
-            android:id="@+id/imgbtnReload"
-            android:layout_marginLeft="100pt"
-            android:background="#ABFFEB3B"
-            android:layout_width="30dp"
-            android:layout_gravity="center"
-            android:layout_height="30dp"
-            android:src="@android:drawable/ic_popup_sync" />
     </LinearLayout>
     <ListView
         android:id="@+id/listview"

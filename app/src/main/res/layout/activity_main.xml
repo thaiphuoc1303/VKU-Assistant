@@ -13,55 +13,91 @@
         android:textSize="30dp"
         android:layout_marginBottom="20dp"
         android:textColor="#19FF00"
-        android:text="Thêm lịch học"
+        android:text="@string/themlichhoc"
         />
     <EditText
         android:id="@+id/hocphan"
         android:background="@drawable/edittextselector"
         android:paddingLeft="20dp"
-        android:hint="Học phần"
+        android:hint="@string/tenmonhoc"
         android:layout_margin="20dp"
         android:layout_width="match_parent"
         android:layout_height="40dp"
     />
-    <EditText
-        android:id="@+id/phong"
-        android:background="@drawable/edittextselector"
-        android:paddingLeft="20dp"
-        android:hint="Phòng"
-        android:layout_margin="20dp"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        />
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Thời gian:"
+        android:text="@string/diadiem"
+        android:layout_marginLeft="20dp"
+        android:id="@+id/tv"
         android:textSize="16dp"
-        android:layout_margin="20dp"
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:gravity="center">
+<!--        <TextView-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="40dp"-->
+<!--            android:paddingLeft="10dp"-->
+<!--            android:paddingRight="10dp"-->
+<!--            android:gravity="center"-->
+<!--            android:background="@drawable/edittextselector"-->
+<!--            android:text="Chọn địa điểm"-->
+<!--            android:textSize="18dp"-->
+<!--            -->
+<!--            />-->
+        <Spinner
+            android:id="@+id/diadiemSpinner"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:dropDownWidth="match_parent"
+            />
+
+        <EditText
+            android:id="@+id/phong"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_margin="20dp"
+            android:background="@drawable/edittextselector"
+            android:hint="@string/phong"
+            android:paddingLeft="20dp" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/thoigian"
+        android:textSize="16dp"
+        android:layout_marginLeft="20dp"
         />
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
         android:gravity="center">
 
         <Spinner
-            android:background="@drawable/edittextselector"
-            android:paddingLeft="5dp"
             android:id="@+id/spinner"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:background="@drawable/edittextselector"
+            android:paddingLeft="5dp"
+             />
 
         <EditText
             android:id="@+id/thoigian"
             android:background="@drawable/edittextselector"
             android:paddingLeft="20dp"
-            android:layout_width="200dp"
+            android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_marginLeft="20dp"
             android:editable="false"
-            android:hint="Giờ bắt đầu" />
+            android:hint="@string/giobatdau" />
     </LinearLayout>
 
     <CheckBox
@@ -84,7 +120,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginRight="10dp"
-            android:text="Đóng"/>
+            android:text="@string/dong"/>
         <Button
             android:id="@+id/btn3"
             android:theme="@style/Theme.btnGreen"
@@ -92,7 +128,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
-            android:text="Thêm"
+            android:text="@string/them"
             />
 
     </LinearLayout>

@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:minWidth="400dp"
+    android:orientation="vertical"
+    android:gravity="center">
+    <TextView
+        android:layout_margin="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Sửa nhắc nhở"
+        android:textSize="28dp"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Nhắc nhở"
+        android:textSize="14dp"
+        android:layout_marginLeft="10dp"/>
+    <EditText
+        android:id="@+id/edtTieuDe"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@drawable/edittextselector"
+        android:hint="Tiêu đề"
+        android:paddingLeft="20dp"
+        android:layout_margin="20dp"
+        />
+    <EditText
+        android:id="@+id/edtChiTiet"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="40dp"
+        android:background="@drawable/edittextselector"
+        android:hint="Chi tiết"
+        android:paddingLeft="20dp"
+        android:layout_margin="20dp"
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+        <TextView
+            android:layout_width="220dp"
+            android:layout_height="wrap_content"
+            android:text="Thời gian"
+            android:layout_marginLeft="10dp"
+            android:textSize="14dp"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="string"
+            android:textSize="14dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+
+        >
+        <TextView
+            android:id="@+id/tvThoigian"
+            android:layout_width="180dp"
+            android:layout_height="wrap_content"
+            android:text="Chọn thời gian"
+            android:layout_margin="20dp"
+            android:textSize="20dp"
+            />
+
+        <Spinner
+            android:id="@+id/laplai"
+            style="@android:style/Widget.Holo.Light.Spinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:fadeScrollbars="true"
+            android:gravity="left"
+            android:popupElevation="14dp"
+            android:spinnerMode="dialog"
+            android:splitMotionEvents="false"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        >
+        <Button
+            android:id="@+id/btnHuy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hủy"
+            android:background="@drawable/button"
+            android:theme="@style/Theme.btnRed"
+            />
+        <Space
+            android:layout_width="20dp"
+            android:layout_height="wrap_content"/>
+        <Button
+            android:id="@+id/btnLuu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:theme="@style/Theme.btnGreen"
+            android:background="@drawable/button"
+            android:text="Lưu"
+            />
+    </LinearLayout>
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="30dp"/>
+</LinearLayout>
