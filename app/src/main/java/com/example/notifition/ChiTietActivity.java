@@ -8,6 +8,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.TextView;
 
+import com.example.notifition.model.monhoc;
+
 public class ChiTietActivity extends AppCompatActivity {
     monhoc mon;
     TextView ten, thu, gio, phong, diadiem;

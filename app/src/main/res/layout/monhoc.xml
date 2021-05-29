@@ -22,7 +22,7 @@
         <TextView
             android:id="@+id/monhoc"
 
-            android:layout_width="100dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Môn học"
@@ -32,9 +32,10 @@
         <TextView
             android:id="@+id/phong"
             android:textSize="16dp"
-            android:layout_width="50dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:textColor="#7E4E4E"
             android:text="Phòng" />
     </LinearLayout>
 

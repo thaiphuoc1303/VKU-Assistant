@@ -1,4 +1,4 @@
-package com.example.notifition;
+package com.example.notifition.model;
 
 import java.io.Serializable;
 

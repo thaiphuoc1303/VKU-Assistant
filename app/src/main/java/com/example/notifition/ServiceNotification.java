@@ -26,6 +26,10 @@ import androidx.annotation.Nullable;
 import androidx.core.app.ActivityCompat;
 import androidx.core.app.NotificationCompat;
 
+import com.example.notifition.model.Distances;
+import com.example.notifition.model.Durations;
+import com.example.notifition.model.Route;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;

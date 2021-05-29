@@ -82,7 +82,6 @@ public class ListCVActivity extends AppCompatActivity {
                 }
                 adapter = new NhacNhoAdapter(ListCVActivity.this, R.layout.nhac_nho_row, nhacNhoItems);
                 listView.setAdapter(adapter);
-                Log.e("SSS", "Capnhat");
                 handler.postDelayed(this, 2000);
             }
         }, 2000);

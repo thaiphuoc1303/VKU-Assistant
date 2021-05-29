@@ -1,4 +1,4 @@
-package com.example.notifition;
+package com.example.notifition.model;
 
 public class vehicle {
     int icon;

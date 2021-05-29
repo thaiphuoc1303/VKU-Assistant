@@ -1,4 +1,4 @@
-package com.example.notifition;
+package com.example.notifition.model;
 
 public class LocationItem {
     String ten, mota, lat, lng, id;

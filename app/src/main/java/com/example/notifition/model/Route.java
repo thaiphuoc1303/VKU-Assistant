@@ -1,8 +1,7 @@
-package com.example.notifition;
+package com.example.notifition.model;
 
-import android.os.Parcel;
-import android.os.Parcelable;
-
+import com.example.notifition.model.Distances;
+import com.example.notifition.model.Durations;
 import com.google.android.gms.maps.model.LatLng;
 
 import java.util.List;

@@ -56,4 +56,5 @@
     <string name="tieude">Title</string>
     <string name="chonthu">Select:</string>
     <string name="giay">" seconds"</string>
+    <string name="themnhacnho">Add Notification</string>
 </resources>

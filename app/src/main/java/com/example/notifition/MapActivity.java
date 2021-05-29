@@ -14,17 +14,17 @@ import android.graphics.Color;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import com.example.notifition.Adapter.VehicleAdapter;
+import com.example.notifition.model.Distances;
+import com.example.notifition.model.Durations;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -164,7 +164,6 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
 			}
 		});
 
-
 	}
 
 
@@ -232,8 +231,6 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
 					JSONObject overview_polylineJson = jsonRoute.getJSONObject("overview_polyline");
 					Log.e("SSS", overview_polylineJson.toString());
 					points = decodePolyLine(overview_polylineJson.getString("points"));
-//					points = decodePolyLine("g_s`BghwsSoBWGEG@IFAFBFFDJ?xJvAlKxAlKxAtEf@BDFBF?FETJ|Cf@xAP~Dh@tAPfFl@rFt@LPF@J?LIxF|@zEn@fDd@lGz@vANBHJHBbFBfURAh@A`@EtCAzA?xG@fB?|GA@fB");
-
 				} catch (JSONException e) {
 					e.printStackTrace();
 				}

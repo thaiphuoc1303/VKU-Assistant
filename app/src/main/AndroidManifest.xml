@@ -17,8 +17,9 @@
         android:theme="@style/Theme.Notifition">
         <activity android:name=".ThemNhacNhoActivity"
             android:parentActivityName=".ListCVActivity"
-            android:label="Thêm nhắc nhở"></activity>
+            android:label="@string/themnhacnho"></activity>
         <activity android:name=".ListCVActivity"
+            android:label="@string/thongbao"
             android:parentActivityName=".MenuActivity"/>
         <activity
             android:name=".LocationListActivity"
@@ -49,7 +50,7 @@
         </activity>
         <activity
             android:name=".MainActivity2"
-            android:label="@string/thongbao"
+            android:label="@string/lichhoc"
             android:parentActivityName=".MenuActivity" />
         <activity
             android:name=".MainActivity"

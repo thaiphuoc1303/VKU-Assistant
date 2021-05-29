@@ -1,8 +1,7 @@
 package com.example.notifition;
 
-import com.google.android.gms.maps.model.LatLng;
+import com.example.notifition.model.Route;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public interface DirectionFinderListener {

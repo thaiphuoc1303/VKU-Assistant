@@ -1,12 +1,12 @@
-package com.example.notifition;
+package com.example.notifition.model;
 
-public class Distances {
+public class Durations {
     public String text;
     public int value;
-    public Distances(String text, int value) {
+
+    public Durations(String text, int value) {
         this.text = text;
         this.value = value;
-
     }
 
     public String getText() {
@@ -16,5 +16,4 @@ public class Distances {
     public int getValue() {
         return value;
     }
-
 }

@@ -1,15 +1,14 @@
 package com.example.notifition;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.os.Handler;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.widget.ListView;
+
+import com.example.notifition.Adapter.LocationAdapter;
+import com.example.notifition.model.LocationItem;
 
 import java.util.ArrayList;
 

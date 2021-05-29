@@ -1,8 +1,7 @@
-package com.example.notifition;
+package com.example.notifition.Adapter;
 
 import android.app.Dialog;
 import android.content.Context;
-import android.location.Location;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +11,10 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.notifition.DataBase;
+import com.example.notifition.R;
+import com.example.notifition.model.LocationItem;
 
 import java.util.ArrayList;
 
