@@ -9,13 +9,13 @@
         android:layout_margin="20dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Sửa nhắc nhở"
+        android:text="@string/suanhacnho"
         android:textSize="28dp"
         />
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Nhắc nhở"
+        android:text="@string/nhacnho"
         android:textSize="14dp"
         android:layout_marginLeft="10dp"/>
     <EditText
@@ -23,7 +23,7 @@
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:background="@drawable/edittextselector"
-        android:hint="Tiêu đề"
+        android:hint="@string/tieude"
         android:paddingLeft="20dp"
         android:layout_margin="20dp"
         />
@@ -33,7 +33,7 @@
         android:layout_height="wrap_content"
         android:minHeight="40dp"
         android:background="@drawable/edittextselector"
-        android:hint="Chi tiết"
+        android:hint="@string/chitiet"
         android:paddingLeft="20dp"
         android:layout_margin="20dp"
         />
@@ -45,14 +45,14 @@
         <TextView
             android:layout_width="220dp"
             android:layout_height="wrap_content"
-            android:text="Thời gian"
+            android:text="@string/thoigian"
             android:layout_marginLeft="10dp"
             android:textSize="14dp"
             />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="string"
+            android:text="@string/laplai"
             android:textSize="14dp"/>
     </LinearLayout>
 
@@ -66,7 +66,7 @@
             android:id="@+id/tvThoigian"
             android:layout_width="180dp"
             android:layout_height="wrap_content"
-            android:text="Chọn thời gian"
+            android:text="@string/chonthoigian"
             android:layout_margin="20dp"
             android:textSize="20dp"
             />
@@ -93,7 +93,7 @@
             android:id="@+id/btnHuy"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Hủy"
+            android:text="@string/huy"
             android:background="@drawable/button"
             android:theme="@style/Theme.btnRed"
             />
@@ -106,7 +106,7 @@
             android:layout_height="wrap_content"
             android:theme="@style/Theme.btnGreen"
             android:background="@drawable/button"
-            android:text="Lưu"
+            android:text="@string/luu"
             />
     </LinearLayout>
     <Space

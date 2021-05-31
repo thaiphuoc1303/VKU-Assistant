@@ -62,6 +62,7 @@ public class NhacNhoAdapter extends BaseAdapter {
         TextView tvChiTiet = convertView.findViewById(R.id.tvChitiet);
         ImageButton btnEdit = convertView.findViewById(R.id.imgEdit);
         ImageButton btnDelete = convertView.findViewById(R.id.imgDelete);
+        TextView tvStt = convertView.findViewById(R.id.stt);
         dataBase = new DataBase(context, "database.sqlite", null, 1);
 
         NhacNhoItem nhacNhoItem = nhacNhoItems.get(position);
@@ -85,30 +86,49 @@ public class NhacNhoAdapter extends BaseAdapter {
                 
                 switch (tuan){
                     case 1:
-                        strChiTiet = format1.format(calendar.getTime())+ "Chủ nhật hàng tuần";
+                        strChiTiet = format1.format(calendar.getTime())+ context.getString(R.string.chunhathangtuan);
                         break;
                     case 2:
-                        strChiTiet = format1.format(calendar.getTime())+ "Thứ hai hàng tuần";
+                        strChiTiet = format1.format(calendar.getTime())+ context.getString(R.string.thu2hangtuan);
                         break;
                     case 3:
-                        strChiTiet = format1.format(calendar.getTime())+ "Thứ 3 hàng tuần";
+                        strChiTiet = format1.format(calendar.getTime())+ context.getString(R.string.thu3hangtuan);
                         break;
                     case 4:
-                        strChiTiet = format1.format(calendar.getTime())+ "Thứ tư hàng tuần";
+                        strChiTiet = format1.format(calendar.getTime())+ context.getString(R.string.thu4hangtuan);
                         break;
                     case 5:
-                        strChiTiet = format1.format(calendar.getTime())+ "Thứ 5 hàng tuần";
+                        strChiTiet = format1.format(calendar.getTime())+ context.getString(R.string.thu5hangtuan);
                         break;
                     case 6:
-                        strChiTiet = format1.format(calendar.getTime())+ "Thứ 6 hàng tuần";
+                        strChiTiet = format1.format(calendar.getTime())+ context.getString(R.string.thu6hangtuan);
                         break;
                     case 7:
-                        strChiTiet = format1.format(calendar.getTime())+ "Thứ 7 hàng tuần";
+                        strChiTiet = format1.format(calendar.getTime())+ context.getString(R.string.thu7hangtuan);
                 }
                 break;
             case 2:
                 int thang = calendar.get(Calendar.DAY_OF_MONTH);
-                strChiTiet = format1.format(calendar.getTime()) + "ngày "+ thang+" hàng tháng";
+                switch (thang){
+                    case 1:
+                    case 21:
+                    case 31:
+                        strChiTiet = format1.format(calendar.getTime()) + context.getString(R.string.ngay)+ thang+context.getString(R.string.ngayx1);
+                        break;
+                    case 2:
+                    case 22:
+                        strChiTiet = format1.format(calendar.getTime()) + context.getString(R.string.ngay)+ thang+context.getString(R.string.ngayx2);
+
+                        break;
+                    case 3:
+                    case 23:
+                        strChiTiet = format1.format(calendar.getTime()) + context.getString(R.string.ngay)+ thang+context.getString(R.string.ngayx3);
+                        break;
+                    default:
+                        strChiTiet = format1.format(calendar.getTime()) + context.getString(R.string.ngay)+ thang+context.getString(R.string.ngayk);
+                        break;
+
+                }
                 break;
             default:
                 strChiTiet = nhacNhoItem.thoigian;
@@ -132,9 +152,9 @@ public class NhacNhoAdapter extends BaseAdapter {
                 spinner = dialog.findViewById(R.id.laplai);
                 tvThoiGian = dialog.findViewById(R.id.tvThoigian);
                 ArrayList<String> arrLapLai = new ArrayList<>();
-                arrLapLai.add("Không lặp lại");
-                arrLapLai.add("Hàng tuần");
-                arrLapLai.add("Hàng tháng");
+                arrLapLai.add(context.getString(R.string.khonglaplai));
+                arrLapLai.add(context.getString(R.string.hangtuan));
+                arrLapLai.add(context.getString(R.string.hangthang));
                 ArrayAdapter adapter = new ArrayAdapter(context, android.R.layout.simple_expandable_list_item_1, arrLapLai);
                 spinner.setAdapter(adapter);
 
@@ -206,12 +226,12 @@ public class NhacNhoAdapter extends BaseAdapter {
             public void onClick(View v) {
                 dataBase.QueryData("DELETE FROM nhacnho WHERE id = "+ nhacNhoItem.getId());
                 AlertDialog.Builder alert = new AlertDialog.Builder(context);
-                alert.setTitle("Thông báo!").setMessage("Đã xóa").show();
-
+                alert.setTitle(context.getString(R.string.thongbao)).setMessage(context.getString(R.string.xoathanhcong)).show();
 
             }
         });
         tvChiTiet.setText(strChiTiet);
+        tvStt.setText(nhacNhoItem.getStt()+"");
         return convertView;
     }
 }

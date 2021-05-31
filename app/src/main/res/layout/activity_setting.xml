@@ -9,9 +9,33 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/chedotoi"
+            android:textSize="20dp"/>
+        <Space
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"/>
+        <Switch
+            android:id="@+id/dark"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            />
+
+    </LinearLayout>
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="20dp"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="horizontal"
         >
-
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -19,8 +43,8 @@
             android:text="@string/thongbao"
             android:textSize="20dp" />
         <Space
-            android:layout_width="200dp"
-            android:layout_height="match_parent"/>
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"/>
         <Switch
             android:id="@+id/onoff"
             android:layout_width="50dp"
@@ -98,6 +122,10 @@
 
             />
     </LinearLayout>
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        />
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

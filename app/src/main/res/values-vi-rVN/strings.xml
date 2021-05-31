@@ -3,9 +3,6 @@
     <string name="app_name">Notification</string>
     <string name="dong">Đóng</string>
     <string name="xacnhan">Xác nhận</string>
-    <string name="API">AIzaSyA66KwUrjxcFG5u0exynlJ45CrbrNe3hEc</string>
-    <string name="channel_description">tt</string>
-    <string name="channel_name">lichhoc</string>
     <string name="thoikhoabieu">Thời khóa biểu</string>
     <string name="nhacnho">Nhắc nhở</string>
     <string name="bando">Bản đồ</string>
@@ -45,7 +42,7 @@
     <string name="xedap">Xe đạp</string>
     <string name="xemay">Xe máy</string>
     <string name="oto">Ô tô</string>
-    <string name="phong">Room</string>
+    <string name="phong">Phòng</string>
     <string name="giobatdau">Giờ bắt đầu</string>
     <string name="suanhacnho">Sửa nhắc nhở</string>
     <string name="laplai">Lặp lại</string>
@@ -57,4 +54,25 @@
     <string name="chonthu">Chọn thứ</string>
     <string name="giay">" giây"</string>
     <string name="themnhacnho">Thêm nhắc nhở</string>
+    <string name="danhsachnhacnho">Danh sách nhắc nhở</string>
+    <string name="hangtuan">Hàng tuần</string>
+    <string name="hangthang">" Hàng tháng"</string>
+    <string name="chunhathangtuan">" Chủ nhật hàng tuần"</string>
+    <string name="thu2hangtuan">" Thứ 2 hàng tuần"</string>
+    <string name="thu3hangtuan">" Thứ 3 hàng tuần"</string>
+    <string name="thu4hangtuan">" Thứ tư hàng tuần"</string>
+    <string name="thu5hangtuan">" Thứ 5 hàng tuần"</string>
+    <string name="thu6hangtuan">" Thứ 6 hàng tuần"</string>
+    <string name="thu7hangtuan">" Thứ 7 hàng tuần"</string>
+    <string name="ngay">" Ngày "</string>
+    <string name="ngayx1">" hàng tháng"</string>
+    <string name="ngayx2">" hàng tháng"</string>
+    <string name="ngayx3">" hàng tháng"</string>
+    <string name="ngayk">" hàng tháng"</string>
+    <string name="chedotoi">Chế độ tối</string>
+    <string name="khonglaplai">Không lặp lại</string>
+    <string name="xoathanhcong">Xóa thành công!</string>
+    <string name="matketnoi">Mất kết nối internet</string>
+    <string name="khoang">"Ước tính mất "</string>
+    <string name="dangchay">đang chạy</string>
 </resources>

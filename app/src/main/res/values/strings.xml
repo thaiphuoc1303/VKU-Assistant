@@ -1,9 +1,9 @@
 <resources>
-    <string name="API">AIzaSyA66KwUrjxcFG5u0exynlJ45CrbrNe3hEc</string>
+    <string name="API" translatable="false">AIzaSyA66KwUrjxcFG5u0exynlJ45CrbrNe3hEc</string>
     //AIzaSyDNI_ZWPqvdS6r6gPVO50I4TlYkfkZdXh8
-    <string name="app_name">Notification</string>
-    <string name="channel_description">tt</string>
-    <string name="channel_name">lichhoc</string>
+    <string name="app_name">VKU Assistant</string>
+    <string name="channel_description" translatable="false">tt</string>
+    <string name="channel_name" translatable="false">lichhoc</string>
     <string name="dong">Close</string>
     <string name="xacnhan">Done</string>
     <string name="thoikhoabieu">Schedule</string>
@@ -54,7 +54,28 @@
     <string name="tenmonhoc">Name</string>
     <string name="luu">Save</string>
     <string name="tieude">Title</string>
-    <string name="chonthu">Select:</string>
+    <string name="chonthu">Select day:</string>
     <string name="giay">" seconds"</string>
     <string name="themnhacnho">Add Notification</string>
+    <string name="danhsachnhacnho">Reminding list</string>
+    <string name="hangtuan">Weekly</string>
+    <string name="hangthang">Monthly</string>
+    <string name="chunhathangtuan">Every Sunday</string>
+    <string name="thu2hangtuan">Every Monday</string>
+    <string name="thu3hangtuan">Every Tuesday</string>
+    <string name="thu4hangtuan">Every Wednesday</string>
+    <string name="thu5hangtuan">Every Thursday</string>
+    <string name="thu6hangtuan">Every Friday</string>
+    <string name="thu7hangtuan">Every Saturday</string>
+    <string name="ngay">" "</string>
+    <string name="ngayx1">st of every month</string>
+    <string name="ngayx2">nd of every month</string>
+    <string name="ngayx3">rd of every month</string>
+    <string name="ngayk">th of every month</string>
+    <string name="chedotoi">Dark mode</string>
+    <string name="khonglaplai">No repeat</string>
+    <string name="xoathanhcong">Delete successfully!</string>
+    <string name="matketnoi">Lost connection</string>
+    <string name="khoang">"About "</string>
+    <string name="dangchay">is running</string>
 </resources>

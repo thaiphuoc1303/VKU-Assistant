@@ -21,6 +21,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.notifition.Adapter.VehicleAdapter;
 import com.example.notifition.model.Distances;
@@ -197,8 +198,7 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
 		endLocation = new LatLng(Double.parseDouble(lat), Double.parseDouble(lng));
 
 		String url = "https://rsapi.goong.io/Direction?origin="+ origin+
-				"&destination="+destination+"&vehicle=hd&api_key=O2RZBszkiGblwi02rA2A7ftHuXts5FCz3WCKM4AT";
-
+				"&destination="+destination+"&vehicle=hd&api_key=O2RZBszkiGblwi02rA2A7ftHuXts5FCz3WCKM4AT";Log.e("SSS", url);
 //				"https://maps.googleapis.com/maps/api/directions/json?origin="+origin+"&destination="
 //				+destination+"+&mode="+mode+"&language=vi&key="+ getString(R.string.API);
 		Log.e("SSS", url);
@@ -240,6 +240,11 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
 	}
 
 	public void onDirectionFinderSuccess(List<LatLng> points, GoogleMap googleMap, int intMode) {
+		if(points.size() == 0 || points== null){
+			Toast toast = Toast.makeText(this, getString(R.string.matketnoi), Toast.LENGTH_SHORT);
+			toast.show();
+			return;
+		}
 		googleMap.clear();
 		polylinePaths = new ArrayList<>();
 		originMarkers = new ArrayList<>();
@@ -262,11 +267,11 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
 				break;
 		}
 		int time = distance.value/(v*60);
-		((TextView) findViewById(R.id.tvDuration)).setText(time + " phút");
+		((TextView) findViewById(R.id.tvDuration)).setText(time + getString(R.string.phut));
 		((TextView) findViewById(R.id.tvDistance)).setText(distance.text);
 		destinationMarkers.add(mMap.addMarker(new MarkerOptions()
 				.icon(BitmapDescriptorFactory.fromResource(R.drawable.end_green))
-				.title("Phòng học")
+				.title(getString(R.string.phong))
 				.position(endLocation)));
 
 		PolylineOptions polylineOptions = new PolylineOptions().
@@ -276,9 +281,7 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
 				width(10).clickable(true);
 		for (int i = 0; i < points.size(); i++){
 			polylineOptions.add(points.get(i));
-//                Log.e("BBBB", String.valueOf(points.get(i)));
 		}
-		Log.e("AAA", "ve2");
 		Polyline polyline = googleMap.addPolyline(polylineOptions);
 
 //            mMap.addPolyline(polylineOptions);

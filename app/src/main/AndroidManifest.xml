@@ -14,7 +14,7 @@
         android:label="@string/app_name"
         android:roundIcon="@drawable/notification"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Notifition">
+        android:theme="@style/Theme.Notification">
         <activity android:name=".ThemNhacNhoActivity"
             android:parentActivityName=".ListCVActivity"
             android:label="@string/themnhacnho"></activity>
@@ -23,6 +23,7 @@
             android:parentActivityName=".MenuActivity"/>
         <activity
             android:name=".LocationListActivity"
+            android:label=""
             android:parentActivityName=".MapMenuActivity" />
         <activity
             android:name=".AddLocationActivity"

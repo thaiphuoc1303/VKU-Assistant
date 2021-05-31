@@ -14,9 +14,11 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Danh sách nhắc nhở"
+            android:text="@string/danhsachnhacnho"
+            android:textColor="@color/text_title"
             android:textSize="28dp"
             android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
             />
     </LinearLayout>
     <Space
@@ -25,6 +27,5 @@
     <ListView
         android:id="@+id/list"
         android:layout_width="match_parent"
-        android:layout_marginLeft="10dp"
         android:layout_height="match_parent"/>
 </LinearLayout>

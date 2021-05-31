@@ -2,6 +2,7 @@ package com.example.notifition;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -18,7 +19,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class SettingActivity extends AppCompatActivity {
-    Switch swOnOff;
+    Switch swOnOff, swDark;
     Spinner thoigian, baolai, phuongtien;
     Button btnLuu;
     SharedPreferences sharedPreferences;
@@ -73,14 +74,24 @@ public class SettingActivity extends AppCompatActivity {
                     editor.putInt("on", 1);
                 }
                 else editor.putInt("on", 0);
-                editor.commit();
                 Toast toast = Toast.makeText(SettingActivity.this, "Đã lưu", Toast.LENGTH_SHORT);
                 toast.show();
+                if(swDark.isChecked()){
+                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+                    editor.putInt("dark", 1);
+                }
+                else {
+                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+                    editor.putInt("dark", 0);
+                }
+
+                editor.commit();
             }
         });
 
     }
     void  anhxa(){
+        swDark = findViewById(R.id.dark);
         swOnOff = findViewById(R.id.onoff);
         thoigian = findViewById(R.id.thoigian);
         baolai = findViewById(R.id.baoLai);
@@ -128,7 +139,16 @@ public class SettingActivity extends AppCompatActivity {
             case 30:
                 thoigian.setSelection(3);
                 break;
-
+        }
+        if(sharedPreferences.getInt("dark", 0)==1){
+            swDark.setChecked(true);
+        }
+        else swDark.setChecked(false);
+        if (sharedPreferences.getInt("on", 0)==1){
+            swOnOff.setChecked(true);
+        }
+        else {
+            swOnOff.setChecked(false);
         }
     }
 

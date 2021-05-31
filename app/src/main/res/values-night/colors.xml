@@ -9,16 +9,15 @@
     <color name="white">#FFFFFFFF</color>
     <color name="BLUE">#0055FF</color>
     <color name="green">#7DFB46</color>
-    <color name="green_light">#5ff0f7</color>
-    <color name="violet">#00E5FF</color>
-    <color name="blue">#00B0FF</color>
-    <color name="pink">#2979FF</color>
+    <color name="green_light">#317A7E</color>
+    <color name="violet">#FF113C50</color>
+    <color name="blue">#FF1B4025</color>
+    <color name="pink">#FF317A7E</color>
 
-    <color name="background_menu">#F8F8F8</color>
-    <color name="text_menu">#1E0E1E</color>
-    <color name="text_def">#000000</color>
-    <color name="text_f">#323232</color>
-    <color name="boder_edt">#00E5FF</color>
-    <color name="text_title">#00B0FF</color>
-
+    <color name="background_menu">#000000</color>
+    <color name="text_menu">#FFFFFF</color>
+    <color name="text_def">#FFFFFF</color>
+    <color name="text_f">#5A575C</color>
+    <color name="boder_edt">#DDBAE4</color>
+    <color name="text_title">#E2F2FA</color>
 </resources>

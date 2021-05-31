@@ -4,27 +4,28 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
+    android:background="@drawable/backgroundlist"
     android:orientation="vertical"
     tools:context=".MainActivity2">
 
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_marginLeft="10dp"
-        android:layout_marginBottom="20dp"
-        android:layout_height="wrap_content">
-        <TextView
-            android:textColor="#F4F253"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+<!--    <LinearLayout-->
+<!--        android:orientation="horizontal"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_marginLeft="10dp"-->
+<!--        android:layout_marginBottom="20dp"-->
+<!--        android:layout_height="wrap_content">-->
+<!--        <TextView-->
+<!--            android:textColor="@color/text_title"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
 
-            android:textSize="30dp"
-            android:text="@string/lichhoc"
-            />
-    </LinearLayout>
+<!--            android:textSize="30dp"-->
+<!--            android:text="@string/lichhoc"-->
+<!--            />-->
+<!--    </LinearLayout>-->
     <ListView
         android:id="@+id/listview"
+        android:layout_marginTop="30dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 <!--    <TextView-->

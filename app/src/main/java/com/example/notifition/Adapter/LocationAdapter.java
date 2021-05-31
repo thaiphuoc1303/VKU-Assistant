@@ -64,7 +64,7 @@ public class LocationAdapter extends BaseAdapter {
             public void onClick(View v) {
                 String sql = "DELETE FROM diadiem WHERE id = "+ locationItem.getId();
                 dataBase.QueryData(sql);
-                Toast toast = Toast.makeText(context, "Đã xóa địa điểm!", Toast.LENGTH_SHORT);
+                Toast toast = Toast.makeText(context, context.getString(R.string.xoathanhcong), Toast.LENGTH_SHORT);
                 toast.show();
             }
         });

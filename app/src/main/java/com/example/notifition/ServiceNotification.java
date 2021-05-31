@@ -96,7 +96,7 @@ public class ServiceNotification extends Service {
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
             notification = new Notification.Builder(this, "channel")
                     .setContentTitle(getString(R.string.nhacnho))
-                    .setContentText("VKU Assistant đang chạy")
+                    .setContentText("VKU Assistant"+ getString(R.string.dangchay))
                     .setSmallIcon(R.drawable.notification)
                     .setContentIntent(pendingIntent).setAutoCancel(true).setAutoCancel(true)
                     .build();
@@ -139,10 +139,11 @@ public class ServiceNotification extends Service {
                                     long finalDiff = diff;
                                     valueApi(cursor.getString(6));
                                     String mess = cursor.getString(2) + getString(R.string.batdausau) + finalDiff + getString(R.string.phut) + getString(R.string.khoangcach) + kc;
-                                    if(diff< conlai) {
-                                        mess+= ".\nĐi nhanh kẻo muộn giờ học.";
-                                    }
+//                                    if(diff< conlai) {
+//                                        mess+= ".\nĐi nhanh kẻo muộn giờ học.";
+//                                    }
 //                                    else mess+= "\nCòn sớm, qua gọi ny đi học cùng luôn";
+                                    mess+= ".\n"+ getString(R.string.khoang)+ conlai + getString(R.string.phut);
                                     addNotification(getString(R.string.lichhochomnay), mess, cursor.getString(0),
                                             Integer.parseInt(cursor.getString(6)));
                                 }
@@ -332,6 +333,7 @@ public class ServiceNotification extends Service {
                             = new Durations(jsonDuration.getString("text"), jsonDuration.getInt("value"));
                     Distances distance
                             = new Distances(jsonDistance.getString("text"), jsonDistance.getInt("value"));
+
                     khoangcach = distance.getValue();
                     thoigian = duration.getValue();
 

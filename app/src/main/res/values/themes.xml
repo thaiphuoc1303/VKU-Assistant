@@ -1,9 +1,10 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.Notifition" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
-        <!-- Primary brand color. -->
-        <item name="colorPrimary">#BEFFFF00</item>
-        <item name="colorPrimaryVariant">#6BFF0000</item>
+    <style name="Theme.Notification" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        <!-- Primary brand color.  #BEFFFF00 #6BFF0000 @color/black-->
+        <item name="colorPrimary">#00E5FF</item>
+        <item name="colorPrimaryDark">#00E5FF</item>
+        <item name="colorPrimaryVariant">#00B0FF</item>
         <item name="colorOnPrimary">@color/black</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/teal_200</item>
@@ -25,4 +26,5 @@
         <item name="android:textColorPrimary">@color/white</item>
         <item name="colorPrimaryDark">#B1FF91</item>
     </style>
+
 </resources>

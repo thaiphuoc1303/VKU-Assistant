@@ -78,11 +78,11 @@ public class MonHocAdapter extends BaseAdapter {
         imgbtnEdit = (ImageButton) convertView.findViewById(R.id.edit);
         monhoc mon = hocphans.get(position);
 
-
         idMon.setText(mon.getStt());
         tvTen.setText(mon.getTen());
         tvGio.setText(mon.getGiohoc());
-        tvPhong.setText(mon.getPhong());
+        tvPhong.setText(context.getString(R.string.phong)+": ");
+        tvPhong.append(mon.getPhong());
         switch (mon.getThu()){
             case "1":
                 tvThu.setText(R.string.chuNhat);
@@ -110,7 +110,7 @@ public class MonHocAdapter extends BaseAdapter {
             @Override
             public void onClick(View v) {
                 dataBase.QueryData("DELETE FROM lichhoc WHERE id = " + mon.getId());
-                Toast toast = Toast.makeText(context, "Đã xóa", Toast.LENGTH_SHORT);
+                Toast toast = Toast.makeText(context, context.getString(R.string.xoathanhcong), Toast.LENGTH_SHORT);
                 toast.show();
             }
         });

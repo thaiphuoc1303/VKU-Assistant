@@ -39,7 +39,7 @@ public class MainActivity<request> extends AppCompatActivity {
         dataBase = new DataBase(this, "database.sqlite", null, 1);
         listDiadiem = new ArrayList<String>();
         thu = new ArrayList<String>();
-        thu.add("Chọn thứ:");
+        thu.add(getString(R.string.chonthu));
         thu.add(getString(R.string.chuNhat));
         thu.add(getString(R.string.thu2));
         thu.add(getString(R.string.thu3));
@@ -59,10 +59,6 @@ public class MainActivity<request> extends AppCompatActivity {
                 listDiadiem.add(cursor.getString(1));
             }
 
-        }
-        else {
-            Toast toast = Toast.makeText(this, "Địa điểm trống", Toast.LENGTH_SHORT);
-            toast.show();
         }
 
         ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_expandable_list_item_1, listDiadiem);

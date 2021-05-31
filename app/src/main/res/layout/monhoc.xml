@@ -2,70 +2,78 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_marginLeft="5dp"
-    android:gravity="center"
+    android:padding="5dp"
     android:layout_height="wrap_content">
-    <TextView
-        android:id="@+id/id"
-        android:textSize="16dp"
-        android:layout_width="20dp"
-        android:layout_height="wrap_content"
-        android:text="1"
-
-        android:layout_marginRight="5dp"
-        />
     <LinearLayout
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/list_item"
+        android:orientation="horizontal"
+        android:gravity="center"
         >
         <TextView
-            android:id="@+id/monhoc"
-
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Môn học"
+            android:id="@+id/id"
             android:textSize="16dp"
-            android:textStyle="bold" />
+            android:layout_width="20dp"
+            android:layout_height="wrap_content"
+            android:text="1"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            />
+        <LinearLayout
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+            <TextView
+                android:id="@+id/monhoc"
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Môn học"
+                android:textSize="16dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/phong"
+                android:textSize="16dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textColor="#511A1A"
+                android:text="Phòng" />
+        </LinearLayout>
+
 
         <TextView
-            android:id="@+id/phong"
+            android:id="@+id/thu"
             android:textSize="16dp"
-            android:layout_width="match_parent"
+            android:layout_width="75dp"
+            android:layout_height="wrap_content"
+            android:text="Thứ" />
+
+        <TextView
+            android:id="@+id/giohoc"
+            android:textSize="16dp"
+            android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:textColor="#7E4E4E"
-            android:text="Phòng" />
+            android:text="Giờ học" />
+
+        <ImageButton
+            android:id="@+id/edit"
+            android:layout_width="40dp"
+            android:layout_height="wrap_content"
+            android:background="#B9A1FF8C"
+            app:srcCompat="@android:drawable/ic_menu_edit" />
+
+        <ImageButton
+            android:id="@+id/delete"
+            android:layout_width="40dp"
+            android:layout_height="wrap_content"
+            android:background="#BCFF0000"
+            android:layout_marginRight="10dp"
+            app:srcCompat="@android:drawable/ic_menu_delete" />
     </LinearLayout>
-
-
-    <TextView
-        android:id="@+id/thu"
-        android:textSize="16dp"
-        android:layout_width="75dp"
-        android:layout_height="wrap_content"
-        android:text="Thứ" />
-
-    <TextView
-        android:id="@+id/giohoc"
-        android:textSize="16dp"
-        android:layout_width="50dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:text="Giờ học" />
-
-    <ImageButton
-        android:id="@+id/edit"
-        android:layout_width="40dp"
-        android:layout_height="wrap_content"
-        android:background="#B9A1FF8C"
-        app:srcCompat="@android:drawable/ic_menu_edit" />
-
-    <ImageButton
-        android:id="@+id/delete"
-        android:layout_width="40dp"
-        android:layout_height="wrap_content"
-        android:background="#BCFF0000"
-        app:srcCompat="@android:drawable/ic_menu_delete" />
 </LinearLayout>

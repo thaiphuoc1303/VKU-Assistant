@@ -42,9 +42,9 @@ public class ThemNhacNhoActivity extends AppCompatActivity {
 
         simpleDateFormat = new SimpleDateFormat("HH: mm dd-MM-yyyy");
         ArrayList<String> arrLapLai = new ArrayList<>();
-        arrLapLai.add("Không lặp lại");
-        arrLapLai.add("Hàng tuần");
-        arrLapLai.add("Hàng tháng");
+        arrLapLai.add(getString(R.string.khonglaplai));
+        arrLapLai.add(getString(R.string.hangtuan));
+        arrLapLai.add(getString(R.string.hangthang));
         ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_expandable_list_item_1, arrLapLai);
         spinnerLapLai.setAdapter(adapter);
         Calendar calendar = Calendar.getInstance();
@@ -82,17 +82,24 @@ public class ThemNhacNhoActivity extends AppCompatActivity {
                 String chitiet = edtChiTiet.getText()+"";
                 String thoigian = tvThoiGian.getText()+"";
                 int nhaclai = spinnerLapLai.getSelectedItemPosition();
-                dataBase.QueryData("INSERT INTO nhacnho (ten, chitiet, thoigian, laplai) VALUES ('" +
-                        tieude + "', '" +
-                        chitiet + "', '" +
-                        thoigian + "', " +
-                        nhaclai + ")");
-                edtChiTiet.setText("");
-                edtTieude.setText("");
-                tvThoiGian.setText("Chọn thời gian");
-                spinnerLapLai.setSelection(0);
-                Toast toast = Toast.makeText(ThemNhacNhoActivity.this, getString(R.string.themthanhcong), Toast.LENGTH_SHORT);
-                toast.show();
+
+                if (tieude!="" && thoigian != getString(R.string.chonthoigian)){
+                    dataBase.QueryData("INSERT INTO nhacnho (ten, chitiet, thoigian, laplai) VALUES ('" +
+                            tieude + "', '" +
+                            chitiet + "', '" +
+                            thoigian + "', " +
+                            nhaclai + ")");
+                    edtChiTiet.setText("");
+                    edtTieude.setText("");
+                    tvThoiGian.setText("Chọn thời gian");
+                    spinnerLapLai.setSelection(0);
+                    Toast toast = Toast.makeText(ThemNhacNhoActivity.this, getString(R.string.themthanhcong), Toast.LENGTH_SHORT);
+                    toast.show();
+                }
+                else {
+                    Toast toast = Toast.makeText(ThemNhacNhoActivity.this, "Điền đầy đủ các trường cần thiết!", Toast.LENGTH_SHORT);
+                    toast.show();
+                }
 
             }
         });

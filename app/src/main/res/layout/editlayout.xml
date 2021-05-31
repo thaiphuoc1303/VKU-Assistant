@@ -10,8 +10,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="20dp"
-        android:textColor="#BCFFEB3B"
-        android:text="Sửa thời khóa biểu"
+        android:textColor="@color/boder_edt"
+        android:text="@string/suathoikhoabieu"
         android:layout_margin="20dp"
         />
 
@@ -20,7 +20,7 @@
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:paddingLeft="20dp"
-        android:hint="Học phần"
+        android:hint="@string/tenmonhoc"
         android:background="@drawable/edittextselector"
         android:layout_margin="20dp"
         android:inputType="textPersonName" />
@@ -28,7 +28,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
-        android:text="Địa điểm"
+        android:text="@string/diadiem"
         android:textSize="18dp"
         />
     <LinearLayout
@@ -50,7 +50,7 @@
             android:layout_height="40dp"
             android:paddingLeft="20dp"
             android:background="@drawable/edittextselector"
-            android:hint="Phòng"
+            android:hint="@string/phong"
             android:inputType="textPersonName" />
     </LinearLayout>
 
@@ -60,7 +60,7 @@
         android:layout_marginLeft="20dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Thời gian:"
+        android:text="@string/thoigian"
         android:textSize="18sp" />
     <LinearLayout
         android:layout_width="match_parent"
@@ -82,7 +82,7 @@
             android:paddingLeft="20dp"
             android:layout_marginLeft="10dp"
             android:background="@drawable/edittextselector"
-            android:hint="Giờ học"
+            android:hint="@string/giobatdau"
             android:inputType="textPersonName" />
     </LinearLayout>
     <LinearLayout
@@ -97,7 +97,7 @@
             android:background="@drawable/button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Hủy"/>
+            android:text="@string/huy"/>
         <Button
             android:id="@+id/buttonXacNhan"
             android:layout_margin="10dp"
@@ -105,7 +105,7 @@
             android:layout_width="wrap_content"
             android:layout_gravity="center"
             android:layout_height="wrap_content"
-            android:text="Xác nhận" />
+            android:text="@string/xacnhan" />
     </LinearLayout>
 
 

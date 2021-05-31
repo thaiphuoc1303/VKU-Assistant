@@ -51,6 +51,7 @@ public class ListCVActivity extends AppCompatActivity {
         dataBase = new DataBase(this, "database.sqlite", null, 1);
         Cursor cursor = dataBase.GetData("SELECT * FROM nhacnho");
         nhacNhoItems = new ArrayList<>();
+        int stt = 0;
         while (cursor.moveToNext()){
             String ten = cursor.getString(1);
             String chitiet = cursor.getString(2);
@@ -58,7 +59,8 @@ public class ListCVActivity extends AppCompatActivity {
             String id = cursor.getString(0);
             int laplai = Integer.parseInt(cursor.getString(4));
             int trangthai = Integer.parseInt(cursor.getString(5));
-            NhacNhoItem nhacNhoItem = new NhacNhoItem(ten, chitiet, thoigian, laplai, trangthai, id);
+            stt ++;
+            NhacNhoItem nhacNhoItem = new NhacNhoItem(ten, chitiet, thoigian, laplai, trangthai, id, stt);
             nhacNhoItems.add(nhacNhoItem);
         }
 
@@ -70,6 +72,7 @@ public class ListCVActivity extends AppCompatActivity {
             public void run() {
                 Cursor cursor1 = dataBase.GetData("SELECT * FROM nhacnho");
                 nhacNhoItems = new ArrayList<>();
+                int stt = 1;
                 while (cursor1.moveToNext()){
                     String ten = cursor1.getString(1);
                     String chitiet = cursor1.getString(2);
@@ -77,8 +80,9 @@ public class ListCVActivity extends AppCompatActivity {
                     String id = cursor1.getString(0);
                     int laplai = Integer.parseInt(cursor1.getString(4));
                     int trangthai = Integer.parseInt(cursor1.getString(5));
-                    NhacNhoItem nhacNhoItem = new NhacNhoItem(ten, chitiet, thoigian, laplai, trangthai, id);
+                    NhacNhoItem nhacNhoItem = new NhacNhoItem(ten, chitiet, thoigian, laplai, trangthai, id, stt);
                     nhacNhoItems.add(nhacNhoItem);
+                    stt ++;
                 }
                 adapter = new NhacNhoAdapter(ListCVActivity.this, R.layout.nhac_nho_row, nhacNhoItems);
                 listView.setAdapter(adapter);

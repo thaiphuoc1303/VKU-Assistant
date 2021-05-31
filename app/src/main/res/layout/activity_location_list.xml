@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@drawable/backgroundlist"
     tools:context=".LocationListActivity">
 
     <TextView
@@ -12,6 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
         android:text="@string/diadiemcuaban"
+        android:textColor="@color/text_def"
         android:textSize="28dp"
         android:textStyle="bold" />
     <Space
