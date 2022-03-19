@@ -71,7 +71,6 @@ public class ServiceNotification extends Service {
     @Override
     public void onCreate() {
         super.onCreate();
-        Log.e("SSS", "sev");
         locationManager = (LocationManager) this.getSystemService(LOCATION_SERVICE);
         locationListener = new LocationListener() {
             @Override
@@ -355,7 +354,6 @@ public class ServiceNotification extends Service {
                             break;
                     }
                     kc = distance.getText();
-                    Log.e("SSS", kc);
                     conlai = distance.value/(v*60);
 
                 } catch (JSONException e) {
